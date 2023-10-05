@@ -1,0 +1,17 @@
+<!-- estoque/templates/estoque/editar_item.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar Item do Estoque</title>
+</head>
+<body>
+    <h1>Editar Item do Estoque</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Salvar Alterações">
+    </form>
+    <a href="{% url 'detalhes_item' item.id %}">Cancelar</a>
+</body>
+</html>

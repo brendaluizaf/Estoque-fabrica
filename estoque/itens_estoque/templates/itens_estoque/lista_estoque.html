@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Itens em Estoque</title>
+    <link rel="stylesheet" type="text/css" href="/static/estoque/css/estilos.css" />
+</head>
+<body>
+    <h1>Lista de Itens em Estoque</h1>
+    
+    <ul>
+        {% for item in itens %}
+            <li>{{ item.nome }} - {{ item.descricao }} - Quantidade: {{ item.quantidade}}</li>
+            <a href="{% url 'detalhes_item' item.id %}">Detalhes</a> |
+            <a href="{% url 'editar_item' item.id %}">Editar</a> |
+            <a href="{% url 'verificar_exclusao' item.id %}">Excluir</a>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'adicionar_item' %}">Adicionar Novo Item</a>
+</body>
+</html>
